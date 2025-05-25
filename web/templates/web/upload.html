@@ -1,0 +1,57 @@
+{% extends "web/base.html" %}
+{% block message %}
+{% block title %}Upload File{% endblock title %}
+
+    <style>
+        .container {
+            max-width: 600px;
+            margin: 30px auto 25px auto; /* Top, Right, Bottom, Left */
+            text-align: center;
+        }
+        
+        .error {
+            color: red;
+            font-size: 16px;
+        }
+         .success {
+            color: green;
+            font-size: 16px;
+        } 
+    </style> 
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">Upload CSV of Phone Numbers</h1>
+
+        <!-- CSV Upload Form -->
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            <div class="mb-3">
+                <label for="csv_file" class="form-label">Choose CSV File</label>
+                <input type="file" class="form-control" name="csv_file" accept=".csv" required>
+            </div>
+            
+            <button type="submit" class="btn btn-primary w-100">Upload</button>
+        </form>
+
+        <!-- Error Message -->
+        {% if error %}
+            <div class="alert alert-danger mt-3">{{ error }}</div>
+        {% endif %}
+        
+        <!-- Success Message -->
+        {% if not error %}
+            <div class="alert alert-success mt-3">
+                {% if request.GET.success %}
+                    File uploaded successfully!
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+
+   
+</body>
+</html>
+
+{% endblock message %}

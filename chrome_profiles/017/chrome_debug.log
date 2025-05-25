@@ -1,0 +1,4 @@
+[9064:126824:0423/121529.274911:INFO:chrome_browser_cloud_management_controller.cc(202)] No machine level policy manager exists.
+[9064:126824:0423/121535.232402:INFO:CONSOLE(153)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v4/yj/r/b-MvqPTPrSy.js (153)
+[9064:126824:0423/121611.740575:INFO:CONSOLE(154)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v4/yf/r/T--2WKC1uB4.js (154)
+[9070:126971:0423/121638.430442:WARNING:angle_platform_impl.cc(54)] SizedMRUCache.h:150 (TrimCache): Overflowed the metal library cache limit of 64 elements, removing the least recently used to make room.

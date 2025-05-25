@@ -1,0 +1,58 @@
+2025/05/02-03:44:12.932 139ad0 Reusing MANIFEST /Users/khalidmuhammad/Desktop/DIU_PROJECTS/Bulk/chrome_profiles/1111/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2025/05/02-03:44:12.932 139ad0 Recovering log #112
+2025/05/02-03:44:12.943 139ad0 Reusing old log /Users/khalidmuhammad/Desktop/DIU_PROJECTS/Bulk/chrome_profiles/1111/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/000112.log 
+2025/05/02-03:44:15.264 139ad2 Manual compaction at level-0 from '\x00\x1b\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x1c\x00\x00\x00' @ 0 : 0; will stop at (end)
+2025/05/02-03:44:26.527 139ac3 Level-0 table #121: started
+2025/05/02-03:44:26.539 139ac3 Level-0 table #121: 266297 bytes OK
+2025/05/02-03:44:26.543 139ac3 Delete type=0 #112
+2025/05/02-03:44:26.547 139ac3 Manual compaction at level-0 from '\x00\x1c\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x1d\x00\x00\x00' @ 0 : 0; will stop at (end)
+2025/05/02-03:44:28.407 139ac3 Compacting 1@1 + 5@2 files
+2025/05/02-03:44:28.544 139ac3 Generated table #122@1: 23682 keys, 2183111 bytes
+2025/05/02-03:44:28.576 139ac3 Generated table #123@1: 3456 keys, 2158112 bytes
+2025/05/02-03:44:28.659 139ac3 Generated table #124@1: 31031 keys, 2240050 bytes
+2025/05/02-03:44:28.754 139ac3 Generated table #125@1: 81964 keys, 2227720 bytes
+2025/05/02-03:44:28.777 139ac3 Generated table #126@1: 13304 keys, 303239 bytes
+2025/05/02-03:44:28.777 139ac3 Compacted 1@1 + 5@2 files => 9112232 bytes
+2025/05/02-03:44:28.780 139ac3 compacted to: files[ 0 0 5 0 0 0 0 ]
+2025/05/02-03:44:28.780 139ac3 Delete type=2 #116
+2025/05/02-03:44:28.780 139ac3 Delete type=2 #117
+2025/05/02-03:44:28.781 139ac3 Delete type=2 #115
+2025/05/02-03:44:28.781 139ac3 Delete type=2 #114
+2025/05/02-03:44:28.781 139ac3 Delete type=2 #121
+2025/05/02-03:44:28.781 139ac3 Delete type=2 #118
+2025/05/02-03:45:02.289 139ad0 Level-0 table #128: started
+2025/05/02-03:45:02.302 139ad0 Level-0 table #128: 120307 bytes OK
+2025/05/02-03:45:02.307 139ad0 Delete type=0 #120
+2025/05/02-03:45:02.309 139ac1 Manual compaction at level-0 from '\x00\x1d\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x1e\x00\x00\x00' @ 0 : 0; will stop at (end)
+2025/05/02-03:45:13.758 139ac3 Compacting 1@1 + 5@2 files
+2025/05/02-03:45:13.852 139ac3 Generated table #129@1: 24950 keys, 2183996 bytes
+2025/05/02-03:45:14.441 139ac3 Generated table #130@1: 3475 keys, 2159337 bytes
+2025/05/02-03:45:14.920 139ac3 Generated table #131@1: 30836 keys, 2240649 bytes
+2025/05/02-03:45:15.475 139ac3 Generated table #132@1: 80461 keys, 2226757 bytes
+2025/05/02-03:45:15.630 139ac3 Generated table #133@1: 15059 keys, 340977 bytes
+2025/05/02-03:45:15.630 139ac3 Compacted 1@1 + 5@2 files => 9151716 bytes
+2025/05/02-03:45:15.638 139ac3 compacted to: files[ 0 0 5 0 0 0 0 ]
+2025/05/02-03:45:15.650 139ac3 Delete type=2 #128
+2025/05/02-03:45:15.650 139ac3 Delete type=2 #123
+2025/05/02-03:45:15.650 139ac3 Delete type=2 #122
+2025/05/02-03:45:15.650 139ac3 Delete type=2 #125
+2025/05/02-03:45:15.650 139ac3 Delete type=2 #124
+2025/05/02-03:45:15.650 139ac3 Delete type=2 #126
+2025/05/02-03:46:04.189 139ad0 Level-0 table #135: started
+2025/05/02-03:46:04.434 139ad0 Level-0 table #135: 184649 bytes OK
+2025/05/02-03:46:04.448 139ad0 Delete type=0 #127
+2025/05/02-03:46:04.449 139ad0 Manual compaction at level-0 from '\x00\x1e\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x1f\x00\x00\x00' @ 0 : 0; will stop at (end)
+2025/05/02-03:46:08.117 139ac3 Compacting 1@1 + 5@2 files
+2025/05/02-03:46:08.270 139ac3 Generated table #136@1: 26608 keys, 2186483 bytes
+2025/05/02-03:46:08.330 139ac3 Generated table #137@1: 3511 keys, 2158182 bytes
+2025/05/02-03:46:08.896 139ac3 Generated table #138@1: 30495 keys, 2242485 bytes
+2025/05/02-03:46:09.528 139ac3 Generated table #139@1: 77776 keys, 2222628 bytes
+2025/05/02-03:46:09.578 139ac3 Generated table #140@1: 18231 keys, 412154 bytes
+2025/05/02-03:46:09.578 139ac3 Compacted 1@1 + 5@2 files => 9221932 bytes
+2025/05/02-03:46:09.581 139ac3 compacted to: files[ 0 0 5 0 0 0 0 ]
+2025/05/02-03:46:09.582 139ac3 Delete type=2 #129
+2025/05/02-03:46:09.582 139ac3 Delete type=2 #135
+2025/05/02-03:46:09.582 139ac3 Delete type=2 #131
+2025/05/02-03:46:09.582 139ac3 Delete type=2 #130
+2025/05/02-03:46:09.582 139ac3 Delete type=2 #132
+2025/05/02-03:46:09.582 139ac3 Delete type=2 #133

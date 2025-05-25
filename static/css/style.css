@@ -1,0 +1,8 @@
+#sidebarMenu {
+    width: 250px; /* Adjust based on sidebar width */
+}
+
+main {
+    margin-left: 250px; /* Same width as the sidebar */
+    padding: 20px; /* Adds spacing */
+}

@@ -1,0 +1,59 @@
+{% extends "web/base.html" %}
+{% block docs %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WhatsApp Message API Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">WhatsApp Message API Documentation</h1>
+        <hr>
+        
+        <h2>API Overview</h2>
+        <p>This API allows users to send WhatsApp messages using a predefined sender profile. Users must authenticate with a username and password.</p>
+        
+        <h3>Endpoint</h3>
+        <code>POST /api/</code>
+        
+        <h3>Request Headers</h3>
+        <ul>
+            <li><strong>Content-Type:</strong> application/json</li>
+        </ul>
+
+        <h3>Request Body (JSON)</h3>
+        <pre>
+{
+    "username": "your_username",
+    "password": "your_password",
+    "phone_numbers": ["+1234567890", "+9876543210"],
+    "message": "Hello, this is a test message!"
+}
+        </pre>
+
+        <h3>Response</h3>
+        <h4>Success (200)</h4>
+        <pre>
+{
+    "success": "Message sent successfully!"
+}
+        </pre>
+
+        <h4>Errors</h4>
+        <ul>
+            <li><strong>400 Bad Request:</strong> Invalid JSON format or missing parameters</li>
+            <li><strong>403 Forbidden:</strong> Invalid username or password</li>
+            <li><strong>404 Not Found:</strong> Sender profile not found</li>
+            <li><strong>405 Method Not Allowed:</strong> Only POST method is allowed</li>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+{% endblock docs %}

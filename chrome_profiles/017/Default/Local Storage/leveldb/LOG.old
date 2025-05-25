@@ -1,0 +1,8 @@
+2025/04/22-19:37:12.011 3faf7a Creating DB /Users/khalidmuhammad/Desktop/DIU_PROJECTS/Bulk/chrome_profiles/017/Default/Local Storage/leveldb since it was missing.
+2025/04/22-19:37:12.040 3faf7a Reusing MANIFEST /Users/khalidmuhammad/Desktop/DIU_PROJECTS/Bulk/chrome_profiles/017/Default/Local Storage/leveldb/MANIFEST-000001
+2025/04/22-21:22:57.674 3faf7a Level-0 table #5: started
+2025/04/22-21:22:57.753 3faf7a Level-0 table #5: 18014 bytes OK
+2025/04/22-21:22:57.817 3faf7a Delete type=0 #3
+2025/04/22-22:32:15.296 3faf7a Level-0 table #7: started
+2025/04/22-22:32:15.310 3faf7a Level-0 table #7: 15354 bytes OK
+2025/04/22-22:32:15.411 3faf7a Delete type=0 #4

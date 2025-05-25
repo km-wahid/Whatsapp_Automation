@@ -1,0 +1,27 @@
+{% extends "web/base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block dashboard %}
+<div class="container mt-5">
+    {% comment %} <h2 class="mb-4">Dashboard</h2> {% endcomment %}
+    
+    <div class="row">
+        <!-- Total Users Card -->
+        <div class="col-md-6">
+            <div class="card shadow p-4">
+                <h4>Total Users</h4>
+                <p class="fs-3 fw-bold">{{ total_users }}</p>
+            </div>
+        </div>
+
+        <!-- Total Profile Paths Card -->
+        <div class="col-md-6">
+            <div class="card shadow p-4">
+                <h3>Total Profile</h4>
+                <p class="fs-3 fw-bold">{{ total_profiles }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

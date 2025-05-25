@@ -1,0 +1,102 @@
+{% extends 'web/base.html' %}
+
+{% block input_form %}
+<div class="container mt-5 pt-3">
+    <h2 class="text-center mb-4 text-primary">Create a Template</h2>
+    <div class="card shadow-lg rounded-3 p-5" style="background-color: #f8f9fa; border: 1px solid #dee2e6;">
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <!-- Form fields with enhanced spacing and styling -->
+        <div class="mb-4">
+          {{ form.as_p }}
+        </div>
+  
+        <!-- Submit button with hover effect and smooth transition -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary btn-lg w-100" 
+                  style="background-color: #007bff; border: none; transition: 0.3s ease; 
+                  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);">
+            Save Template
+          </button>
+        </div>
+      </form>
+    </div>
+</div>
+
+<style>
+  body {
+      background-color: #f1f3f6;
+      font-family: 'Arial', sans-serif;
+  }
+
+  h2 {
+      font-weight: bold;
+      color: #007bff;
+      font-size: 2rem;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+  }
+
+  .card {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+      border-radius: 15px;
+      background-color: #ffffff;
+  }
+
+  .card input,
+  .card select,
+  .card textarea {
+      border-radius: 10px;
+      border: 1px solid #ced4da;
+      padding: 10px;
+      width: 100%;
+      font-size: 1rem;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease-in-out;
+  }
+
+  .card input:focus,
+  .card select:focus,
+  .card textarea:focus {
+      border-color: #007bff;
+      outline: none;
+  }
+
+  .card label {
+      font-size: 1.1rem;
+      color: #495057;
+      font-weight: 600;
+  }
+
+  .btn-primary {
+      background-color: #007bff;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1.1rem;
+      transition: 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+  }
+
+  .btn-primary:hover {
+      background-color: #0056b3 !important;
+      box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3);
+  }
+
+  .text-center {
+      text-align: center;
+  }
+
+  .container {
+      padding-top: 20px;
+  }
+
+  /* Styling for form fields */
+  .form-group {
+      margin-bottom: 20px;
+  }
+</style>
+
+{% endblock %}

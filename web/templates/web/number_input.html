@@ -1,0 +1,14 @@
+{% extends "web/base.html" %}
+{% block wa_login %}
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card p-4 shadow">
+        <h2 class="mb-3">Add WhatsApp Number</h2>
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" name="number" placeholder="Enter WhatsApp number" class="form-control mb-3" required>
+            <button type="submit" class="btn btn-success w-100">Submit</button>
+        </form>
+        <p class="text-muted mt-3">You can add up to 10 numbers only.</p>
+    </div>
+</div>
+{% endblock wa_login %}
