@@ -1,0 +1,25 @@
+{
+  "name": "bulk",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/km-wahid/Whatsapp_Automation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/km-wahid/Whatsapp_Automation/issues"
+  },
+  "homepage": "https://github.com/km-wahid/Whatsapp_Automation#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0",
+    "qrcode": "^1.5.4",
+    "whatsapp-web.js": "^1.28.0"
+  }
+}

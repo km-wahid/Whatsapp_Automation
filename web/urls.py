@@ -13,9 +13,10 @@ urlpatterns = [
     path('api_docs/', api_docs, name='api_docs'),
     path('', login_view, name='login_view'),
     path('logout', logout_view, name='logout_view'),
+    path('login_qr', login_qr, name='login_qr'),
     # path('input_number/', input_number, name='input_number'),
+    path("qr-json", proxy_qr_json, name="proxy_qr_json"),
    
-
 
 
 ]

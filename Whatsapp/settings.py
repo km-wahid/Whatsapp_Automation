@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'celery',
     'django_celery_beat',
     'corsheaders',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -220,3 +221,17 @@ CELERY_TIMEZONE = 'UTC'
 
 
 CSRF_TRUSTED_ORIGINS = ['https://wa.binfosys.solutions', 'https://www.wa.binfosys.solutions']
+
+
+
+ASGI_APPLICATION = "Bulk.asgi.application"
+
+# Redis channel layer
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("localhost", 6379)],
+        },
+    },
+    }

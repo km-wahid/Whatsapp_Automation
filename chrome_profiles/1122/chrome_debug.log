@@ -1,0 +1,14 @@
+[14295:150083:0525/164615.749947:INFO:components/enterprise/browser/controller/chrome_browser_cloud_management_controller.cc:202] No machine level policy manager exists.
+[14303:150214:0525/164618.188952:WARNING:net/spdy/spdy_session.cc:2997] Received HEADERS for invalid stream 1
+[14303:150214:0525/164618.189715:WARNING:net/spdy/spdy_session.cc:2997] Received HEADERS for invalid stream 3
+[14303:150214:0525/164618.189786:WARNING:net/spdy/spdy_session.cc:2997] Received HEADERS for invalid stream 5
+[14295:150083:0525/164621.811708:INFO:CONSOLE:162] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v4/yy/r/RsfVk7fC2r0.js (162)
+[14295:150083:0525/164632.188651:WARNING:components/download/internal/background_service/controller_impl.cc:1187] Background download complete, client: 6, completion type: 0, file size:5156
+[14295:150083:0525/164632.492061:WARNING:components/download/internal/background_service/controller_impl.cc:1187] Background download complete, client: 6, completion type: 0, file size:265059
+[14295:150083:0525/164633.185400:WARNING:components/download/internal/background_service/controller_impl.cc:1187] Background download complete, client: 6, completion type: 0, file size:883094
+[14295:150083:0525/164633.486526:WARNING:components/download/internal/background_service/controller_impl.cc:1187] Background download complete, client: 6, completion type: 0, file size:2200227
+[14295:150083:0525/164633.534019:WARNING:components/download/internal/background_service/controller_impl.cc:1187] Background download complete, client: 6, completion type: 0, file size:45157
+[14295:150083:0525/164634.287232:WARNING:components/download/internal/background_service/controller_impl.cc:1187] Background download complete, client: 6, completion type: 0, file size:2747169
+[14295:150083:0525/164634.537753:WARNING:components/download/internal/background_service/controller_impl.cc:1187] Background download complete, client: 6, completion type: 0, file size:4680
+[14295:150083:0525/164636.839626:WARNING:components/download/internal/background_service/controller_impl.cc:1187] Background download complete, client: 6, completion type: 0, file size:118577
+[14295:150083:0525/164637.131987:WARNING:components/download/internal/background_service/controller_impl.cc:1187] Background download complete, client: 6, completion type: 0, file size:2992963

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WhatsApp QR Login</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f2f2f2;
+            font-family: Arial, sans-serif;
+        }
+        #container {
+            text-align: center;
+        }
+        #qr-img {
+            border: 1px solid #ccc;
+            padding: 10px;
+            background: white;
+            margin-top: 10px;
+        }
+        #home-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        #home-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h2 id="title">⏳ Loading...</h2>
+        <img id="qr-img" src="" alt="" style="display:none;" />
+        <p id="message"></p>
+       <button id="home-button" onclick="window.location.href='{% url 'dashboard' %}'">
+    🏠 Go to Home
+</button>
+
+    </div>
+
+    <script>
+        async function fetchQR() {
+            try {
+                const res = await fetch("/qr-json");
+                const data = await res.json();
+
+                const title = document.getElementById("title");
+                const qrImg = document.getElementById("qr-img");
+                const message = document.getElementById("message");
+
+                if (data.status === "qr") {
+                    title.textContent = "📱 Scan this QR Code with WhatsApp";
+                    qrImg.src = data.image;
+                    qrImg.style.display = "block";
+                    message.textContent = "Keep your phone connected to the internet.";
+                } else if (data.status === "authenticated") {
+                    title.textContent = "✅ Already Authenticated";
+                    qrImg.style.display = "none";
+                    message.textContent = "You can now use WhatsApp automation.";
+                } else if (data.status === "pending") {
+                    title.textContent = "⏳ QR Not Ready";
+                    qrImg.style.display = "none";
+                    message.textContent = "Waiting for WhatsApp to generate a QR code.";
+                } else {
+                    title.textContent = "❌ Error";
+                    qrImg.style.display = "none";
+                    message.textContent = data.message || "Unknown error occurred.";
+                }
+            } catch (err) {
+                document.getElementById("title").textContent = "❌ Connection Error";
+                document.getElementById("message").textContent = err.toString();
+                document.getElementById("qr-img").style.display = "none";
+            }
+        }
+
+        function goHome() {
+            window.location.href = "/";
+        }
+
+        const socket = new WebSocket(
+            'ws://' + window.location.host + '/ws/qr-login/'
+        );
+
+        socket.onmessage = function(e) {
+            const data = JSON.parse(e.data);
+            if (data.status === 'authenticated') {
+                window.location.href = '/dashboard';
+            }
+        };
+
+        socket.onclose = function(e) {
+            console.error('WebSocket closed unexpectedly');
+        };
+
+        fetchQR();
+        setInterval(fetchQR, 3000);
+    </script>
+</body>
+</html>

@@ -2,3 +2,6 @@ myenv/
 __pychache__/
 db.sqlite3
 chrome_profile/
+env/
+manage.py
+node_modules

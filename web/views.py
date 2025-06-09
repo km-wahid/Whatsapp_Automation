@@ -1,8 +1,8 @@
-import json
 import os
 import csv
 from pyexpat.errors import messages
 import random
+import requests
 import shutil
 import platform
 import time
@@ -206,7 +206,46 @@ def user_list(request):
 
 
 
+# Path to Chrome executable 
 
+CHROME_EXECUTABLE = get_chrome_executable()
+
+
+
+# Directory where user profiles will be stored
+CHROME_USER_DATA_PATH = os.path.join(settings.BASE_DIR, 'chrome_profiles')
+
+
+
+def get_chrome_executable():
+    import shutil, os, platform
+
+    system = platform.system()
+
+    common_paths = {
+        'Linux': [
+            'google-chrome',
+            'google-chrome-stable',
+            'chromium-browser',
+            'chromium',
+            '/usr/bin/google-chrome',
+            '/usr/bin/chromium-browser',
+            '/snap/bin/chromium',
+        ],
+        'Darwin': [
+            '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+        ],
+        'Windows': [
+            'chrome.exe',
+        ],
+    }
+
+    for name in common_paths.get(system, []):
+        path = shutil.which(name) if not name.startswith('/') else name
+        if path and os.path.exists(path):
+            return path
+
+    raise EnvironmentError("Chrome executable not found.")
 
 
 
@@ -231,49 +270,12 @@ def process_and_send_messages(user_name):
 
 
 
-def get_chrome_executable():
-    system = platform.system()
-
-    # Check common executable names
-    chrome_names = {
-        'Linux': ['/opt/google/chrome/google-chrome'],
-        'Darwin': ['/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'],
-        'Windows': ['chrome.exe'],
-    }
-
-    if system == 'Windows':
-        for name in chrome_names['Windows']:
-            path = shutil.which(name)
-            if path:
-                return path
-
-    elif system == 'Darwin':
-        for path in chrome_names['Darwin']:
-            if os.path.exists(path):
-                return path
-
-    elif system == 'Linux':
-        for name in chrome_names['Linux']:
-            path = shutil.which(name)
-            if path:
-                return path
-
-    raise EnvironmentError("Chrome executable not found on this system.")
 
 
 
 
 
 
-
-# Path to Chrome executable 
-
-CHROME_EXECUTABLE = get_chrome_executable()
-
-
-
-# Directory where user profiles will be stored
-CHROME_USER_DATA_PATH = os.path.join(settings.BASE_DIR, 'chrome_profiles')
 
 
 
@@ -288,11 +290,18 @@ def create_chrome_profile(user_name):
     
     return profile_path  
 
+
+
+
+
+
+
 def open_whatsapp_in_chrome(profile_path):
-    """Open WhatsApp Web in Chrome with a user-specific profile."""
-    whatsapp_url = 'https://web.whatsapp.com'
+    """Open WhatsApp Web in headless Chrome with a user-specific profile."""
     
+    whatsapp_url = 'https://web.whatsapp.com'
     chrome_executable = get_chrome_executable()
+
     try:
         subprocess.Popen([
             chrome_executable,
@@ -303,14 +312,24 @@ def open_whatsapp_in_chrome(profile_path):
             '--disable-features=SigninIntercept,SignInProfileCreation',
             '--disable-sync',
             '--disable-extensions',
+            '--disable-background-networking',
+            '--disable-default-apps',
+            '--disable-client-side-phishing-detection',
+            '--disable-popup-blocking',
+            '--disable-prompt-on-repost',
+            '--metrics-recording-only',
+            '--no-sandbox',
+            '--disable-dev-shm-usage',
+            '--mute-audio',
+            '--window-size=1920,1080',
+            '--headless=new',  # Use --headless=new for newer Chrome versions
             whatsapp_url
         ])
-        
-        time.sleep(10)  
+        time.sleep(10)  # Let Chrome load
     except Exception as e:
-        print(f"Error launching Chrome: {e}")
+        print(f"Error launching headless Chrome: {e}")
         return HttpResponse(f"Error opening WhatsApp Web: {e}", status=500)
-    
+
     
 
 
@@ -322,8 +341,8 @@ def create_whatsapp_session(request):
         if not user_name:
             return HttpResponse("Phone number is required.", status=400)
 
-        if UserSession.objects.count() >= 10:
-            return HttpResponse("Maximum number of sender IDs reached.", status=400)
+        # if UserSession.objects.count() >= 10:
+        #     return HttpResponse("Maximum number of sender IDs reached.", status=400)
 
         if UserSession.objects.filter(user_name=user_name).exists():
             return HttpResponse("This sender ID already exists.", status=400)
@@ -332,8 +351,10 @@ def create_whatsapp_session(request):
         new_session = UserSession.objects.create(user_name=user_name, profile_path=profile_path)
         SenderID.objects.create(user_session=new_session)
 
-        open_whatsapp_in_chrome(profile_path)
-        return redirect('upload_csv')  # or wherever your next step is
+        # open_whatsapp_in_chrome(profile_path)
+        return login_qr(request)
+
+        # return redirect('upload_csv')  # or wherever your next step is
 
     return render(request, 'web/wa_login.html')
 
@@ -361,11 +382,35 @@ def api_docs(request):
 
 
 
+@login_required
+
+
+def login_qr(request):
+    return render(request, "web/login_qr.html")
 
 
 
 
 
 
+import requests
+from django.http import JsonResponse
 
+def proxy_qr_json(request):
+    try:
+        res = requests.get("http://localhost:3001/qr-json", timeout=5)
+        return JsonResponse(res.json())
+    except Exception as e:
+        return JsonResponse({"status": "error", "message": str(e)}, status=500)
 
+from channels.layers import get_channel_layer
+from asgiref.sync import async_to_sync
+
+def notify_login_success(user_id):
+    channel_layer = get_channel_layer()
+    async_to_sync(channel_layer.group_send)(
+        f"qr_login_{user_id}",
+        {
+            'type': 'login_successful',
+        }
+  )
