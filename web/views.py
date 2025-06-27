@@ -208,7 +208,7 @@ def user_list(request):
 
 # Path to Chrome executable 
 
-CHROME_EXECUTABLE = get_chrome_executable()
+# CHROME_EXECUTABLE = get_chrome_executable()
 
 
 
